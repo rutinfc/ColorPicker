@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ColorPickerView" customModule="ColorPicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="466"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEG-5L-ZEy" customClass="ColorWheelView" customModule="ColorPicker" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="83" width="300" height="300"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="tAc-Qf-09e"/>
+                        <constraint firstAttribute="width" secondItem="CEG-5L-ZEy" secondAttribute="height" multiplier="1:1" id="xKP-XE-Psb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmA-Mn-LdY" customClass="ColorBrightnessView" customModule="ColorPicker" customModuleProvider="target">
+                    <rect key="frame" x="340" y="54" width="93" height="368"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="CEG-5L-ZEy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2aF-FE-cru"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CEG-5L-ZEy" secondAttribute="bottom" id="AGi-7j-giR"/>
+                <constraint firstItem="CEG-5L-ZEy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="KGP-WQ-YYl"/>
+                <constraint firstItem="zmA-Mn-LdY" firstAttribute="leading" secondItem="CEG-5L-ZEy" secondAttribute="trailing" constant="40" id="LO2-WM-tmz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zmA-Mn-LdY" secondAttribute="bottom" constant="10" id="bQ8-o0-bAj"/>
+                <constraint firstItem="CEG-5L-ZEy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ba7-GQ-Mxa"/>
+                <constraint firstItem="zmA-Mn-LdY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="p7y-uE-IAp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zmA-Mn-LdY" secondAttribute="trailing" id="tso-X1-PaP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="brightnessView" destination="zmA-Mn-LdY" id="oBX-Mb-ulW"/>
+                <outlet property="colorWheelView" destination="CEG-5L-ZEy" id="w6t-QB-CYm"/>
+            </connections>
+            <point key="canvasLocation" x="-206.52173913043481" y="27.455357142857142"/>
+        </view>
+    </objects>
+</document>

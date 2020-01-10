@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810B71EC23C804E800299EC2 /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810B71EB23C804E800299EC2 /* ColorPickerView.xib */; };
+		810B71EE23C804F900299EC2 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B71ED23C804F900299EC2 /* ColorPickerView.swift */; };
+		810B71F023C8115200299EC2 /* ColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B71EF23C8115200299EC2 /* ColorViewCell.swift */; };
+		8188418423C70B2600B2C253 /* ColorBrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8188418323C70B2600B2C253 /* ColorBrightnessView.swift */; };
+		81B0F1F423C5AB9B0079EE10 /* ColorCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0F1F323C5AB9B0079EE10 /* ColorCalculator.swift */; };
 		81F86E2123C56F5700BEBC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E2023C56F5700BEBC6C /* AppDelegate.swift */; };
 		81F86E2323C56F5700BEBC6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E2223C56F5700BEBC6C /* SceneDelegate.swift */; };
-		81F86E2523C56F5700BEBC6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E2423C56F5700BEBC6C /* ViewController.swift */; };
+		81F86E2523C56F5700BEBC6C /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E2423C56F5700BEBC6C /* ExampleViewController.swift */; };
 		81F86E2823C56F5700BEBC6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F86E2623C56F5700BEBC6C /* Main.storyboard */; };
 		81F86E2A23C56F5900BEBC6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81F86E2923C56F5900BEBC6C /* Assets.xcassets */; };
 		81F86E2D23C56F5900BEBC6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F86E2B23C56F5900BEBC6C /* LaunchScreen.storyboard */; };
+		81F86E3523C56F7C00BEBC6C /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E3423C56F7C00BEBC6C /* ColorWheelView.swift */; };
+		81F86E3723C56FE800BEBC6C /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E3623C56FE800BEBC6C /* ColorSpace.swift */; };
+		81F86E3923C570D000BEBC6C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E3823C570D000BEBC6C /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		810B71EB23C804E800299EC2 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
+		810B71ED23C804F900299EC2 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		810B71EF23C8115200299EC2 /* ColorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewCell.swift; sourceTree = "<group>"; };
+		8188418323C70B2600B2C253 /* ColorBrightnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBrightnessView.swift; sourceTree = "<group>"; };
+		81B0F1F323C5AB9B0079EE10 /* ColorCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCalculator.swift; sourceTree = "<group>"; };
 		81F86E1D23C56F5700BEBC6C /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F86E2023C56F5700BEBC6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F86E2223C56F5700BEBC6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		81F86E2423C56F5700BEBC6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81F86E2423C56F5700BEBC6C /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		81F86E2723C56F5700BEBC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81F86E2923C56F5900BEBC6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81F86E2C23C56F5900BEBC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81F86E2E23C56F5900BEBC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81F86E3423C56F7C00BEBC6C /* ColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheelView.swift; sourceTree = "<group>"; };
+		81F86E3623C56FE800BEBC6C /* ColorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
+		81F86E3823C570D000BEBC6C /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,31 @@
 		81F86E1F23C56F5700BEBC6C /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
+				81F86E3A23C5724A00BEBC6C /* Picker */,
 				81F86E2023C56F5700BEBC6C /* AppDelegate.swift */,
 				81F86E2223C56F5700BEBC6C /* SceneDelegate.swift */,
-				81F86E2423C56F5700BEBC6C /* ViewController.swift */,
+				810B71EF23C8115200299EC2 /* ColorViewCell.swift */,
+				81F86E2423C56F5700BEBC6C /* ExampleViewController.swift */,
 				81F86E2623C56F5700BEBC6C /* Main.storyboard */,
 				81F86E2923C56F5900BEBC6C /* Assets.xcassets */,
 				81F86E2B23C56F5900BEBC6C /* LaunchScreen.storyboard */,
 				81F86E2E23C56F5900BEBC6C /* Info.plist */,
 			);
 			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		81F86E3A23C5724A00BEBC6C /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				81F86E3423C56F7C00BEBC6C /* ColorWheelView.swift */,
+				81F86E3623C56FE800BEBC6C /* ColorSpace.swift */,
+				81F86E3823C570D000BEBC6C /* UIColorExtension.swift */,
+				81B0F1F323C5AB9B0079EE10 /* ColorCalculator.swift */,
+				8188418323C70B2600B2C253 /* ColorBrightnessView.swift */,
+				810B71ED23C804F900299EC2 /* ColorPickerView.swift */,
+				810B71EB23C804E800299EC2 /* ColorPickerView.xib */,
+			);
+			path = Picker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810B71EC23C804E800299EC2 /* ColorPickerView.xib in Resources */,
 				81F86E2D23C56F5900BEBC6C /* LaunchScreen.storyboard in Resources */,
 				81F86E2A23C56F5900BEBC6C /* Assets.xcassets in Resources */,
 				81F86E2823C56F5700BEBC6C /* Main.storyboard in Resources */,
@@ -138,9 +171,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81F86E2523C56F5700BEBC6C /* ViewController.swift in Sources */,
+				8188418423C70B2600B2C253 /* ColorBrightnessView.swift in Sources */,
+				81F86E2523C56F5700BEBC6C /* ExampleViewController.swift in Sources */,
+				81B0F1F423C5AB9B0079EE10 /* ColorCalculator.swift in Sources */,
+				81F86E3723C56FE800BEBC6C /* ColorSpace.swift in Sources */,
+				810B71F023C8115200299EC2 /* ColorViewCell.swift in Sources */,
 				81F86E2123C56F5700BEBC6C /* AppDelegate.swift in Sources */,
+				810B71EE23C804F900299EC2 /* ColorPickerView.swift in Sources */,
+				81F86E3523C56F7C00BEBC6C /* ColorWheelView.swift in Sources */,
 				81F86E2323C56F5700BEBC6C /* SceneDelegate.swift in Sources */,
+				81F86E3923C570D000BEBC6C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
