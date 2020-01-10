@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		810B71EB23C804E800299EC2 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
 		810B71ED23C804F900299EC2 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
-		81670FB623C856FD001155F7 /* ColorPickerControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorPickerControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81670FB623C856FD001155F7 /* ColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81670FB823C856FD001155F7 /* ColorPickerControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPickerControl.h; sourceTree = "<group>"; };
 		81670FB923C856FD001155F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8188418323C70B2600B2C253 /* ColorBrightnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBrightnessView.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		81670FB723C856FD001155F7 /* ColorPickerControl */ = {
+		81670FB723C856FD001155F7 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
 				81F86E3423C56F7C00BEBC6C /* ColorWheelView.swift */,
@@ -54,13 +54,13 @@
 				81670FB823C856FD001155F7 /* ColorPickerControl.h */,
 				81670FB923C856FD001155F7 /* Info.plist */,
 			);
-			path = ColorPickerControl;
+			path = ColorPicker;
 			sourceTree = "<group>";
 		};
 		81F86E1423C56F5700BEBC6C = {
 			isa = PBXGroup;
 			children = (
-				81670FB723C856FD001155F7 /* ColorPickerControl */,
+				81670FB723C856FD001155F7 /* ColorPicker */,
 				81F86E1E23C56F5700BEBC6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,7 +68,7 @@
 		81F86E1E23C56F5700BEBC6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81670FB623C856FD001155F7 /* ColorPickerControl.framework */,
+				81670FB623C856FD001155F7 /* ColorPicker.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,9 +87,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		81670FB523C856FD001155F7 /* ColorPickerControl */ = {
+		81670FB523C856FD001155F7 /* ColorPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81670FC223C856FD001155F7 /* Build configuration list for PBXNativeTarget "ColorPickerControl" */;
+			buildConfigurationList = 81670FC223C856FD001155F7 /* Build configuration list for PBXNativeTarget "ColorPicker" */;
 			buildPhases = (
 				81670FB123C856FD001155F7 /* Headers */,
 				81670FB223C856FD001155F7 /* Sources */,
@@ -100,9 +100,9 @@
 			);
 			dependencies = (
 			);
-			name = ColorPickerControl;
+			name = ColorPicker;
 			productName = ColorPickerControl;
-			productReference = 81670FB623C856FD001155F7 /* ColorPickerControl.framework */;
+			productReference = 81670FB623C856FD001155F7 /* ColorPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81670FB523C856FD001155F7 /* ColorPickerControl */,
+				81670FB523C856FD001155F7 /* ColorPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -341,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81670FC223C856FD001155F7 /* Build configuration list for PBXNativeTarget "ColorPickerControl" */ = {
+		81670FC223C856FD001155F7 /* Build configuration list for PBXNativeTarget "ColorPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81670FC023C856FD001155F7 /* Debug */,

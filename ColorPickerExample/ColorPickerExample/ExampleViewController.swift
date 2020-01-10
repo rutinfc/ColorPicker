@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ColorPickerControl
+import ColorPicker
 
 enum ColorType : Int {
     case primary, complementary, blackWhite, harmoney1, harmoney2, none

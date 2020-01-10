@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../ColorPicker.xcodeproj">
+      location = "group:/Users/rutinfc/Documents/develop/ColorPicker/ColorPicker.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ColorPickerExample.xcodeproj">
