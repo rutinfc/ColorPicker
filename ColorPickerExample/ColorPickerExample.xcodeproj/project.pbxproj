@@ -14,7 +14,7 @@
 		81670FA623C8564E001155F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81670FA423C8564E001155F7 /* LaunchScreen.storyboard */; };
 		81670FAF23C856B4001155F7 /* ColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81670FAD23C856B4001155F7 /* ColorViewCell.swift */; };
 		81670FB023C856B4001155F7 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81670FAE23C856B4001155F7 /* ExampleViewController.swift */; };
-		81670FE123C8583C001155F7 /* ColorPickerControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81670FE023C8583C001155F7 /* ColorPickerControl.framework */; };
+		819A5DE823C88244009FBF3D /* ColorPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		81670FA723C8564E001155F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81670FAD23C856B4001155F7 /* ColorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewCell.swift; sourceTree = "<group>"; };
 		81670FAE23C856B4001155F7 /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
-		81670FE023C8583C001155F7 /* ColorPickerControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ColorPickerControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		819A5DE723C88244009FBF3D /* ColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81670FE123C8583C001155F7 /* ColorPickerControl.framework in Frameworks */,
+				819A5DE823C88244009FBF3D /* ColorPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +77,7 @@
 		81670FDF23C8583C001155F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81670FE023C8583C001155F7 /* ColorPickerControl.framework */,
+				819A5DE723C88244009FBF3D /* ColorPicker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

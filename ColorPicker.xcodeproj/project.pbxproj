@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		81670FBA23C856FD001155F7 /* ColorPickerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 81670FB823C856FD001155F7 /* ColorPickerControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81670FBA23C856FD001155F7 /* ColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 81670FB823C856FD001155F7 /* ColorPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81670FC323C8570C001155F7 /* ColorBrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8188418323C70B2600B2C253 /* ColorBrightnessView.swift */; };
 		81670FC423C8570C001155F7 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B71ED23C804F900299EC2 /* ColorPickerView.swift */; };
 		81670FC523C8570C001155F7 /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F86E3423C56F7C00BEBC6C /* ColorWheelView.swift */; };
@@ -21,7 +21,7 @@
 		810B71EB23C804E800299EC2 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
 		810B71ED23C804F900299EC2 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		81670FB623C856FD001155F7 /* ColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		81670FB823C856FD001155F7 /* ColorPickerControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPickerControl.h; sourceTree = "<group>"; };
+		81670FB823C856FD001155F7 /* ColorPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		81670FB923C856FD001155F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8188418323C70B2600B2C253 /* ColorBrightnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBrightnessView.swift; sourceTree = "<group>"; };
 		81B0F1F323C5AB9B0079EE10 /* ColorCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCalculator.swift; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 				8188418323C70B2600B2C253 /* ColorBrightnessView.swift */,
 				810B71ED23C804F900299EC2 /* ColorPickerView.swift */,
 				810B71EB23C804E800299EC2 /* ColorPickerView.xib */,
-				81670FB823C856FD001155F7 /* ColorPickerControl.h */,
+				81670FB823C856FD001155F7 /* ColorPicker.h */,
 				81670FB923C856FD001155F7 /* Info.plist */,
 			);
 			path = ColorPicker;
@@ -80,7 +80,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81670FBA23C856FD001155F7 /* ColorPickerControl.h in Headers */,
+				81670FBA23C856FD001155F7 /* ColorPicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +176,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ColorPickerControl/Info.plist;
+				INFOPLIST_FILE = ColorPicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -184,7 +184,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rutinfc.ColorPickerControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rutinfc.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -205,7 +205,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ColorPickerControl/Info.plist;
+				INFOPLIST_FILE = ColorPicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -213,7 +213,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rutinfc.ColorPickerControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rutinfc.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
