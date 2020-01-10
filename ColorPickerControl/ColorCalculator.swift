@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ColorHarmonyType {
+public enum ColorHarmonyType {
     
     case none, analogous, triadic
     

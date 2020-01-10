@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ColorPicker
+//  ColorPickerExample
 //
-//  Created by rutinfc on 2020/01/08.
+//  Created by rutinfc on 2020/01/10.
 //  Copyright © 2020 rutinfc. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  ColorPicker
+//  ColorPickerExample
 //
-//  Created by rutinfc on 2020/01/08.
+//  Created by rutinfc on 2020/01/10.
 //  Copyright © 2020 rutinfc. All rights reserved.
 //
 

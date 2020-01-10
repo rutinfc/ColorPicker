@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorPickerControl
 
 enum ColorType : Int {
     case primary, complementary, blackWhite, harmoney1, harmoney2, none
@@ -17,7 +18,7 @@ enum ColorType : Int {
             return "Primary"
         case .complementary:
             return "Complementary"
-        case .blackWhite:
+        case .blackWhite: 
             return "Black or White"
         case .harmoney1:
             return "Harmoney1"

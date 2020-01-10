@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ColorPickerControl.xcscheme_^#shared#^_</key>
+		<key>ColorPickerExample.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>81F86E1C23C56F5700BEBC6C</key>
+		<key>81670F9523C8564D001155F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,17 +8,18 @@
 
 import UIKit
 
-class ColorPickerView : UIView {
+public class ColorPickerView : UIView {
     
     @IBOutlet weak var colorWheelView: ColorWheelView!
     @IBOutlet weak var brightnessView: ColorBrightnessView!
     
-    var harmony : ColorHarmonyType = .none {
+    public var harmony : ColorHarmonyType = .none {
         didSet {
             self.colorWheelView.calculator = self.harmony.calculator()
         }
     }
-    var color : UIColor = UIColor.white {
+    
+    public var color : UIColor = UIColor.white {
         didSet {
             if self.colorWheelView.currentColor != color {
                 self.brightnessView.color = color
@@ -29,10 +30,11 @@ class ColorPickerView : UIView {
     
     /// Description
     /// colors index = 0 : primary, index = 1 : complementary, index = 2 : black & white, index >= 3 : harmony colors
-    var didChangeColors : (([UIColor])->Void)?
+    public var didChangeColors : (([UIColor])->Void)?
     
-    static func createPicker() -> ColorPickerView? {
-        let array = Bundle.main.loadNibNamed("ColorPickerView", owner: self, options: nil)
+    public static func createPicker() -> ColorPickerView? {
+        
+        let array = Bundle(for: ColorPickerView.self).loadNibNamed("ColorPickerView", owner: self, options: nil)
         
         guard let view = array?.first as? ColorPickerView else {
             return nil
@@ -40,12 +42,9 @@ class ColorPickerView : UIView {
         return view
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
-//        self.layer.borderColor = UIColor.red.cgColor
-//        self.layer.borderWidth = 1
         self.loadControls()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

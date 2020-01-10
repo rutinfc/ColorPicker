@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-public class ColorBrightnessView : UIView {
+class ColorBrightnessView : UIView {
     
     private var isDirty : Bool = false
     

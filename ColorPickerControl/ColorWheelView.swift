@@ -14,13 +14,13 @@ fileprivate extension Date {
     }
 }
 
-public struct IndicatorInfo {
+struct IndicatorInfo {
     var diameter : CGFloat
     var borderWidth : CGFloat
     var borderColor : UIColor
 }
 
-public class ColorWheelView : UIView {
+class ColorWheelView : UIView {
     
     private var isDirty : Bool = false
     
