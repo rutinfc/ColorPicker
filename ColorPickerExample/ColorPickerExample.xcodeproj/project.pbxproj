@@ -14,8 +14,23 @@
 		81670FA623C8564E001155F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81670FA423C8564E001155F7 /* LaunchScreen.storyboard */; };
 		81670FAF23C856B4001155F7 /* ColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81670FAD23C856B4001155F7 /* ColorViewCell.swift */; };
 		81670FB023C856B4001155F7 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81670FAE23C856B4001155F7 /* ExampleViewController.swift */; };
-		819A5DE823C88244009FBF3D /* ColorPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; };
+		81761FA823CD7B19006C1E0D /* ColorPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; };
+		81761FA923CD7B19006C1E0D /* ColorPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		81761FAA23CD7B19006C1E0D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				81761FA923CD7B19006C1E0D /* ColorPicker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		81670F9623C8564D001155F7 /* ColorPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				819A5DE823C88244009FBF3D /* ColorPicker.framework in Frameworks */,
+				81761FA823CD7B19006C1E0D /* ColorPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +107,7 @@
 				81670F9223C8564D001155F7 /* Sources */,
 				81670F9323C8564D001155F7 /* Frameworks */,
 				81670F9423C8564D001155F7 /* Resources */,
+				81761FAA23CD7B19006C1E0D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YW2PFU22PU;
 				INFOPLIST_FILE = ColorPickerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YW2PFU22PU;
 				INFOPLIST_FILE = ColorPickerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

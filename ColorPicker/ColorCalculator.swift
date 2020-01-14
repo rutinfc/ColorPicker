@@ -8,9 +8,9 @@
 
 import UIKit
 
-public enum ColorHarmonyType {
+public enum ColorHarmonyType : Int {
     
-    case none, analogous, triadic
+    case analogous, triadic, none
     
     func calculator() -> ColorCalculator {
         
@@ -22,6 +22,17 @@ public enum ColorHarmonyType {
             
         case .triadic:
             return TriadicColorCalculator()
+        }
+    }
+    
+    func toName() -> String? {
+        switch self {
+        case .analogous:
+            return "Analogous"
+        case .triadic:
+            return "Triadic"
+        default:
+            return nil
         }
     }
 }
