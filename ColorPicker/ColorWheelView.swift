@@ -363,8 +363,19 @@ fileprivate extension ColorWheelView {
     private func viewPointFromHS(hue: CGFloat, saturation: CGFloat) -> CGPoint {
         let colorWheelDiameter = self.diameter
         let radius = saturation * colorWheelDiameter / 2.0
-        let x = colorWheelDiameter / 2.0 + radius * cos(hue * .pi * 2.0)
-        let y = colorWheelDiameter / 2.0 + radius * sin(hue * .pi * 2.0)
+        var x = colorWheelDiameter / 2.0 + radius * cos(hue * .pi * 2.0)
+        var y = colorWheelDiameter / 2.0 + radius * sin(hue * .pi * 2.0)
+        
+        let diff = (max(self.bounds.width, self.bounds.height) - self.diameter) / 2
+        
+        if self.bounds.width > self.diameter {
+            x += diff
+        }
+        
+        if self.bounds.height > self.diameter {
+            y += diff
+        }
+        
         return CGPoint(x: x, y: y)
     }
     

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KaQ-O0-XqA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KaQ-O0-XqA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,18 +10,18 @@
         <!--Example View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ExampleViewController" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ExampleViewController" customModule="ColorPickerExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uev-ke-lte">
-                                <rect key="frame" x="0.0" y="262" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="VFV-62-asa"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorCell" id="7hq-Zc-J8U" customClass="ColorViewCell" customModule="ColorPicker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorCell" id="7hq-Zc-J8U" customClass="ColorViewCell" customModule="ColorPickerExample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hq-Zc-J8U" id="oin-9F-zLI">
@@ -62,7 +62,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwd-Sj-goo">
-                                <rect key="frame" x="0.0" y="512" width="414" height="350"/>
+                                <rect key="frame" x="0.0" y="362" width="414" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMX-pF-Vzh">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -110,6 +110,7 @@
                                             <constraint firstItem="a22-rd-5wK" firstAttribute="centerY" secondItem="KMX-pF-Vzh" secondAttribute="centerY" id="So6-DF-KEd"/>
                                             <constraint firstItem="eWQ-26-EEE" firstAttribute="leading" secondItem="KMX-pF-Vzh" secondAttribute="leading" constant="20" id="Sxh-TF-Nib"/>
                                             <constraint firstAttribute="trailing" secondItem="a22-rd-5wK" secondAttribute="trailing" constant="20" id="Ua7-hE-iHm"/>
+                                            <constraint firstItem="SFV-Vc-efT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eWQ-26-EEE" secondAttribute="trailing" constant="8" symbolic="YES" id="a7h-IO-Gis"/>
                                             <constraint firstItem="uv7-SA-aNc" firstAttribute="centerY" secondItem="KMX-pF-Vzh" secondAttribute="centerY" id="hOY-5g-u6D"/>
                                             <constraint firstItem="a22-rd-5wK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eWQ-26-EEE" secondAttribute="trailing" constant="20" id="zYK-Ma-7ns"/>
                                         </constraints>
@@ -119,7 +120,7 @@
                                 <constraints>
                                     <constraint firstItem="KMX-pF-Vzh" firstAttribute="top" secondItem="dwd-Sj-goo" secondAttribute="top" id="Z1v-NL-H1I"/>
                                     <constraint firstAttribute="trailing" secondItem="KMX-pF-Vzh" secondAttribute="trailing" id="dxu-j1-c3r"/>
-                                    <constraint firstAttribute="height" constant="350" id="tWh-Gc-gV2"/>
+                                    <constraint firstAttribute="height" constant="500" id="tWh-Gc-gV2"/>
                                     <constraint firstItem="KMX-pF-Vzh" firstAttribute="leading" secondItem="dwd-Sj-goo" secondAttribute="leading" id="vcS-xv-uSW"/>
                                 </constraints>
                             </view>
