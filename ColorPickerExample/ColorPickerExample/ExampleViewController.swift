@@ -63,28 +63,55 @@ class ExampleViewController: UIViewController {
             picker.leadingAnchor.constraint(equalTo: self.controlView.leadingAnchor, constant: 10).isActive = true
             picker.trailingAnchor.constraint(equalTo: self.controlView.trailingAnchor, constant: -10).isActive = true
             
-            picker.didChangeColors = { [weak self] (colors) in
+            picker.didChangeColorsWithType = { [weak self] (colorInfos) in
                 
                 guard let type = self?.currentType else {
                     return
                 }
                 switch type {
                 case .primary:
-                    self?.colors = colors
+                    var harmonyIndex = 3
+                    colorInfos.forEach { (type, color) in
+                       
+                        switch type {
+                        case .main:
+                            self?.colors[0] = color
+                            self?.colors[2] = color.blackOrWhite
+                        case .complementary :
+                            self?.colors[1] = color
+                        case .harmony:
+                            self?.colors[harmonyIndex] = color
+                            harmonyIndex += 1
+                        }
+                    }
+                    
                     self?.tableView.reloadData()
+                    
                 case .blackWhite:
-                    if let color = colors.first {
+                    
+                    let mainColor = colorInfos.filter { (type, color) -> Bool in
+                        return type == .main
+                    }
+                    
+                    if let color = mainColor.first?.color {
                         self?.colors[type.rawValue] = color.blackOrWhite
                     }
+                    
                     self?.tableView.reloadRows(at: [IndexPath(row:type.rawValue, section: 0)], with: .none)
-                case .complementary, .harmoney1, .harmoney2:
-                    if let color = colors.first {
+                    
+                case .complementary, .harmoney1, .harmoney2 :
+                    let mainColor = colorInfos.filter { (type, color) -> Bool in
+                        return type == .main
+                    }
+                    if let color = mainColor.first?.color {
                         self?.colors[type.rawValue] = color
                     }
                     self?.tableView.reloadRows(at: [IndexPath(row:type.rawValue, section: 0)], with: .none)
+                    
                 default:
                     break
                 }
+                
             }
         }
         

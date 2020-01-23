@@ -15,7 +15,7 @@
 		81670FAF23C856B4001155F7 /* ColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81670FAD23C856B4001155F7 /* ColorViewCell.swift */; };
 		81670FB023C856B4001155F7 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81670FAE23C856B4001155F7 /* ExampleViewController.swift */; };
 		81761FA823CD7B19006C1E0D /* ColorPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; };
-		81761FA923CD7B19006C1E0D /* ColorPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81761FA923CD7B19006C1E0D /* ColorPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 819A5DE723C88244009FBF3D /* ColorPicker.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +114,8 @@
 			dependencies = (
 			);
 			name = ColorPickerExample;
+			packageProductDependencies = (
+			);
 			productName = ColorPickerExample;
 			productReference = 81670F9623C8564D001155F7 /* ColorPickerExample.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +144,8 @@
 				Base,
 			);
 			mainGroup = 81670F8D23C8564D001155F7;
+			packageReferences = (
+			);
 			productRefGroup = 81670F9723C8564D001155F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

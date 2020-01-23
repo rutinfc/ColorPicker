@@ -8,6 +8,10 @@
 
 import UIKit
 
+public enum ColorType {
+    case main, complementary, harmony
+}
+
 public class ColorPickerView : UIView {
     
     @IBOutlet weak var colorWheelView: ColorWheelView!
@@ -29,8 +33,8 @@ public class ColorPickerView : UIView {
     }
     
     /// Description
-    /// colors index = 0 : primary, index = 1 : complementary, index = 2 : black & white, index >= 3 : harmony colors
-    public var didChangeColors : (([UIColor])->Void)?
+    /// colors index = 0 : primary, index = 1 : complementary, others : harmony colors
+    public var didChangeColorsWithType : (([(type:ColorType, color:UIColor)])->Void)?
     
     public static func createPicker() -> ColorPickerView? {
         
@@ -82,23 +86,23 @@ fileprivate extension ColorPickerView {
             // 하모니 기능을 하지 않을 경우에는 primary colors만 반환하고 종료
             if let type = self?.harmony, type == .none {
                 DispatchQueue.main.async {
-                    self?.didChangeColors?([primaryColor])
+                    self?.didChangeColorsWithType?([(type:ColorType.main, color:primaryColor)])
                 }
                 
                 return
             }
             
             let complementary = primaryColor.complementary
-            
-            let blackWhite = primaryColor.blackOrWhite
-            
-            var responseColors = colors
-            
-            responseColors.insert(complementary, at: 1)
-            responseColors.insert(blackWhite, at: 2)
+            var response = colors.enumerated().compactMap { (offset,element) -> (type:ColorType, color:UIColor)? in
+                if offset == 0 {
+                    return (type:.main, color:element)
+                }
+                return (type:.harmony, color:element)
+            }
+            response.append((type:.complementary, color:complementary))
             
             DispatchQueue.main.async {
-                self?.didChangeColors?(responseColors)
+                self?.didChangeColorsWithType?(response)
             }
         }
     }

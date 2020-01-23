@@ -89,7 +89,7 @@ class TriadicColorCalculator : ColorCalculator {
     
     override init() {
         super.init()
-        self.pointCount = 3
+        self.pointCount = 2
     }
     
     override func calc() {
@@ -99,7 +99,7 @@ class TriadicColorCalculator : ColorCalculator {
         let degree = self.rad2deg(self.theta)
         
         let points = (1...pointCount).map { (index) -> CGPoint in
-            let theta = self.deg2rad(degree + ((360.0/Double(self.pointCount)) * Double(index)))
+            let theta = self.deg2rad(degree + ((360.0/Double(self.pointCount + 1)) * Double(index)))
             let x = cos(theta) * Double(radius)
             let y = sin(theta) * Double(radius)
             return CGPoint(x: x, y: y)
