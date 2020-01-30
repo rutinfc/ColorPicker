@@ -268,7 +268,7 @@ fileprivate extension ColorWheelView {
         }
     }
     
-    private func createHSColorWheelImage(size: CGSize) -> CGImage {
+    private func createHSColorWheelImage(size: CGSize) -> CGImage? {
         // Create a bitmap of the Hue Saturation colorWheel
         let colorWheelDiameter = Int(self.diameter)
         let bufferLength = Int(colorWheelDiameter * colorWheelDiameter * 4)
@@ -277,7 +277,7 @@ fileprivate extension ColorWheelView {
         CFDataSetLength(bitmapData, CFIndex(bufferLength))
         let bitmap = CFDataGetMutableBytePtr(bitmapData)
         
-        let start = Date().currentTimeMillis()
+//        let start = Date().currentTimeMillis()
         
         for y in 0 ..< colorWheelDiameter {
             for x in 0 ..< colorWheelDiameter {
@@ -305,11 +305,14 @@ fileprivate extension ColorWheelView {
             }
         }
         
-        print(" END : \(Date().currentTimeMillis() - start)")
+//        print(" END : \(Date().currentTimeMillis() - start)")
 
         // Convert the bitmap to a CGImage
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let dataProvider = CGDataProvider(data: bitmapData)
+        guard let dataProvider = CGDataProvider(data: bitmapData) else {
+            return nil
+        }
+        
         let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo().rawValue | CGImageAlphaInfo.last.rawValue)
         let imageRef = CGImage(
             width: Int(colorWheelDiameter),
@@ -319,11 +322,11 @@ fileprivate extension ColorWheelView {
             bytesPerRow: Int(colorWheelDiameter) * 4,
             space: colorSpace,
             bitmapInfo: bitmapInfo,
-            provider: dataProvider!,
+            provider: dataProvider,
             decode: nil,
             shouldInterpolate: false,
             intent: .defaultIntent)
-        return imageRef!
+        return imageRef
     }
     
     private func updateCurrentColor(centerPoint:CGPoint) {

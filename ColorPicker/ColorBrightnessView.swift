@@ -178,7 +178,9 @@ private extension ColorBrightnessView {
         
         // Convert the bitmap to a CGImage
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let dataProvider = CGDataProvider(data: bitmapData)
+        guard let dataProvider = CGDataProvider(data: bitmapData) else {
+            return nil
+        }
         let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo().rawValue | CGImageAlphaInfo.last.rawValue)
         let imageRef = CGImage(
             width: width,
@@ -188,10 +190,10 @@ private extension ColorBrightnessView {
             bytesPerRow: Int(width) * 4,
             space: colorSpace,
             bitmapInfo: bitmapInfo,
-            provider: dataProvider!,
+            provider: dataProvider,
             decode: nil,
             shouldInterpolate: false,
             intent: .defaultIntent)
-        return imageRef!
+        return imageRef
     }
 }
