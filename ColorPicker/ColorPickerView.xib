@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEG-5L-ZEy" customClass="ColorWheelView" customModule="ColorPicker" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="78" width="432" height="432"/>
+                    <rect key="frame" x="0.0" y="53" width="482" height="482"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="300" constant="300" id="tAc-Qf-09e"/>
@@ -23,10 +23,11 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmA-Mn-LdY" customClass="ColorBrightnessView" customModule="ColorPicker" customModuleProvider="target">
-                    <rect key="frame" x="472" y="54" width="100" height="490"/>
+                    <rect key="frame" x="512" y="54" width="50" height="490"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="8Cb-JQ-cCg"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="8Cb-JQ-cCg"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="JTL-b7-GUK"/>
                     </constraints>
                 </view>
             </subviews>
@@ -35,11 +36,11 @@
                 <constraint firstItem="CEG-5L-ZEy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2aF-FE-cru"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CEG-5L-ZEy" secondAttribute="bottom" id="AGi-7j-giR"/>
                 <constraint firstItem="CEG-5L-ZEy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="KGP-WQ-YYl"/>
-                <constraint firstItem="zmA-Mn-LdY" firstAttribute="leading" secondItem="CEG-5L-ZEy" secondAttribute="trailing" constant="40" id="LO2-WM-tmz"/>
+                <constraint firstItem="zmA-Mn-LdY" firstAttribute="leading" secondItem="CEG-5L-ZEy" secondAttribute="trailing" constant="30" id="LO2-WM-tmz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zmA-Mn-LdY" secondAttribute="bottom" constant="10" id="bQ8-o0-bAj"/>
                 <constraint firstItem="CEG-5L-ZEy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ba7-GQ-Mxa"/>
                 <constraint firstItem="zmA-Mn-LdY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="p7y-uE-IAp"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zmA-Mn-LdY" secondAttribute="trailing" id="tso-X1-PaP"/>
+                <constraint firstAttribute="trailing" secondItem="zmA-Mn-LdY" secondAttribute="trailing" constant="10" id="tso-X1-PaP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
