@@ -20,7 +20,7 @@ struct IndicatorInfo {
     var borderColor : UIColor
 }
 
-class ColorWheelView : UIView {
+public class ColorWheelView : UIView {
     
     private var isDirty : Bool = false
     
@@ -138,7 +138,102 @@ class ColorWheelView : UIView {
     }
 }
 
+public extension ColorWheelView {
+    
+    static func thumbImage(diameter:CGFloat) -> UIImage? {
+        
+        if let cgImage = self.createHSColorWheelImage(diameter: diameter, brightness: 1) {
+            return UIImage(cgImage: cgImage)
+        }
+        return nil
+    }
+}
+
 fileprivate extension ColorWheelView {
+    
+    private static func createHSColorWheelImage(diameter: CGFloat, brightness:CGFloat) -> CGImage? {
+        // Create a bitmap of the Hue Saturation colorWheel
+        let colorWheelDiameter = Int(diameter)
+        let bufferLength = Int(colorWheelDiameter * colorWheelDiameter * 4)
+        
+        let bitmapData: CFMutableData = CFDataCreateMutable(nil, 0)
+        CFDataSetLength(bitmapData, CFIndex(bufferLength))
+        let bitmap = CFDataGetMutableBytePtr(bitmapData)
+        
+        for y in 0 ..< colorWheelDiameter {
+            for x in 0 ..< colorWheelDiameter {
+                
+                var rgb = RGB(red: 0, green: 0, blue: 0, alpha: 0)
+                let point = CGPoint(x: x, y: y)
+                let centerPoint = self.centerPoint(viewPoint: point, radius: diameter/2)
+                var hsb = self.colorHSB(centerPoint: centerPoint, brightness:brightness)
+                
+                if hsb.saturation < 1.0 {
+                    // Antialias the edge of the circle.
+                    if hsb.saturation > 0.99 {
+                        hsb.alpha = (1.0 - hsb.saturation) * 100
+                    } else {
+                        hsb.alpha = 1.0
+                    }
+                    rgb = hsb.rgb
+                }
+                let offset = Int(4 * (x + y * colorWheelDiameter))
+                bitmap?[offset] = UInt8(rgb.red * 255)
+                bitmap?[offset + 1] = UInt8(rgb.green * 255)
+                bitmap?[offset + 2] = UInt8(rgb.blue * 255)
+                bitmap?[offset + 3] = UInt8(rgb.alpha * 255)
+            }
+        }
+        
+        // Convert the bitmap to a CGImage
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        guard let dataProvider = CGDataProvider(data: bitmapData) else {
+            return nil
+        }
+        
+        let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo().rawValue | CGImageAlphaInfo.last.rawValue)
+        let imageRef = CGImage(
+            width: Int(colorWheelDiameter),
+            height: Int(colorWheelDiameter),
+            bitsPerComponent: 8,
+            bitsPerPixel: 32,
+            bytesPerRow: Int(colorWheelDiameter) * 4,
+            space: colorSpace,
+            bitmapInfo: bitmapInfo,
+            provider: dataProvider,
+            decode: nil,
+            shouldInterpolate: false,
+            intent: .defaultIntent)
+        return imageRef
+    }
+    
+    private static func centerPoint(viewPoint:CGPoint, radius:CGFloat) -> CGPoint {
+        let dx = CGFloat(viewPoint.x - radius) / radius
+        let dy = CGFloat(viewPoint.y - radius) / radius
+        return CGPoint(x:dx, y:dy)
+    }
+    
+    private static func distance(centerPoint:CGPoint) -> CGFloat {
+        return sqrt(centerPoint.x * centerPoint.x + centerPoint.y * centerPoint.y)
+    }
+    
+    private static func colorHSB(centerPoint:CGPoint, brightness:CGFloat) -> HSB {
+        var hue = CGFloat()
+        
+        let saturation = self.distance(centerPoint: centerPoint)
+        
+        if saturation == 0 {
+            hue = 0
+        } else {
+            hue = acos(centerPoint.x / saturation) / .pi / 2
+
+            if centerPoint.y < 0 {
+                hue = 1.0 - hue
+            }
+        }
+        
+        return HSB(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+    }
     
     private func loadIndicator() {
         // Configure indicator layer
@@ -195,10 +290,16 @@ fileprivate extension ColorWheelView {
     
     private func updateIndicator () {
         
+        if self.diameter == 0 {
+            return
+        }
+        
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         
-        indicator.position = viewPointFromHS(hue: self.currentHSB.hue, saturation: self.currentHSB.saturation)
+        let viewPoint = viewPointFromHS(hue: self.currentHSB.hue, saturation: self.currentHSB.saturation)
+        
+        indicator.position = adjustViewPointInBounds(viewPoint: viewPoint)
         
         self.indicator.backgroundColor = currentColor.cgColor
         self.updateSubIndicator()
@@ -208,14 +309,18 @@ fileprivate extension ColorWheelView {
     
     private func callbackColors() {
         
-        var colors = self.subIndicator
-            .filter { !$0.isHidden }
-            .map { (layer) -> UIColor in
-                let centerPoint = self.centerPoint(viewPoint: layer.position)
-                return self.colorHSB(centerPoint: centerPoint).color
-        }
+        var colors = [UIColor]()
         
-        colors.insert(self.currentColor, at: 0)
+        colors.append(self.currentColor)
+        
+        if self.subIndicatorCount > 0 {
+            
+            let subColors = self.calculator.points.map { (centerPoint) -> UIColor in
+                return self.colorHSB(centerPoint: centerPoint).color
+            }
+            
+            colors.append(contentsOf: subColors)
+        }
         
         self.updatePickerColors?(colors)
     }
@@ -226,12 +331,13 @@ fileprivate extension ColorWheelView {
             return
         }
         
-        for point in self.calculator.points.enumerated() {
-            
-            let hsb = self.colorHSB(centerPoint: point.element)
-            let layer = self.subIndicator[point.offset]
+        self.calculator.points.enumerated().forEach { (offset, element) in
+            let hsb = self.colorHSB(centerPoint: element)
+            let layer = self.subIndicator[offset]
             layer.backgroundColor = hsb.color.cgColor
-            layer.position = self.viewPointFromHS(hue: hsb.hue, saturation: hsb.saturation)
+            let viewPoint = self.viewPointFromHS(hue: hsb.hue, saturation: hsb.saturation)
+            
+            layer.position = self.adjustViewPointInBounds(viewPoint: viewPoint)
             layer.isHidden = false
         }
     }
@@ -242,7 +348,7 @@ fileprivate extension ColorWheelView {
             return
         }
         
-        self.layer.contents = self.createHSColorWheelImage(size: CGSize(width: self.diameter, height: self.diameter))
+        self.layer.contents = ColorWheelView.createHSColorWheelImage(diameter:self.diameter, brightness: self.brightness)
     }
 
     @objc private func didChangeIndicator(gesture:UIGestureRecognizer) {
@@ -268,67 +374,6 @@ fileprivate extension ColorWheelView {
         }
     }
     
-    private func createHSColorWheelImage(size: CGSize) -> CGImage? {
-        // Create a bitmap of the Hue Saturation colorWheel
-        let colorWheelDiameter = Int(self.diameter)
-        let bufferLength = Int(colorWheelDiameter * colorWheelDiameter * 4)
-
-        let bitmapData: CFMutableData = CFDataCreateMutable(nil, 0)
-        CFDataSetLength(bitmapData, CFIndex(bufferLength))
-        let bitmap = CFDataGetMutableBytePtr(bitmapData)
-        
-//        let start = Date().currentTimeMillis()
-        
-        for y in 0 ..< colorWheelDiameter {
-            for x in 0 ..< colorWheelDiameter {
-                
-                var rgb = RGB(red: 0, green: 0, blue: 0, alpha: 0)
-                let point = CGPoint(x: x, y: y)
-                
-                let centerPoint = self.centerPoint(viewPoint: point)
-                var hsb = self.colorHSB(centerPoint: centerPoint)
-                
-                if hsb.saturation < 1.0 {
-                    // Antialias the edge of the circle.
-                    if hsb.saturation > 0.99 {
-                        hsb.alpha = (1.0 - hsb.saturation) * 100
-                    } else {
-                        hsb.alpha = 1.0
-                    }
-                    rgb = hsb.rgb
-                }
-                let offset = Int(4 * (x + y * colorWheelDiameter))
-                bitmap?[offset] = UInt8(rgb.red * 255)
-                bitmap?[offset + 1] = UInt8(rgb.green * 255)
-                bitmap?[offset + 2] = UInt8(rgb.blue * 255)
-                bitmap?[offset + 3] = UInt8(rgb.alpha * 255)
-            }
-        }
-        
-//        print(" END : \(Date().currentTimeMillis() - start)")
-
-        // Convert the bitmap to a CGImage
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        guard let dataProvider = CGDataProvider(data: bitmapData) else {
-            return nil
-        }
-        
-        let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo().rawValue | CGImageAlphaInfo.last.rawValue)
-        let imageRef = CGImage(
-            width: Int(colorWheelDiameter),
-            height: Int(colorWheelDiameter),
-            bitsPerComponent: 8,
-            bitsPerPixel: 32,
-            bytesPerRow: Int(colorWheelDiameter) * 4,
-            space: colorSpace,
-            bitmapInfo: bitmapInfo,
-            provider: dataProvider,
-            decode: nil,
-            shouldInterpolate: false,
-            intent: .defaultIntent)
-        return imageRef
-    }
-    
     private func updateCurrentColor(centerPoint:CGPoint) {
         self.currentHSB = self.colorHSB(centerPoint: centerPoint)
     }
@@ -340,21 +385,7 @@ fileprivate extension ColorWheelView {
     ///   - hue: On return, the hue component for given point.
     ///   - saturation: On return, the saturation component for given point.
     private func colorHSB(centerPoint:CGPoint) -> HSB {
-        var hue = CGFloat()
-        
-        let saturation = self.distance(centerPoint: centerPoint)
-        
-        if saturation == 0 {
-            hue = 0
-        } else {
-            hue = acos(centerPoint.x / saturation) / .pi / 2
-
-            if centerPoint.y < 0 {
-                hue = 1.0 - hue
-            }
-        }
-        
-        return HSB(hue: hue, saturation: saturation, brightness: self.brightness, alpha: 1)
+        return ColorWheelView.colorHSB(centerPoint: centerPoint, brightness: self.brightness)
     }
     
     /// Get point in the color wheel for a given hue and saturation component.
@@ -366,31 +397,27 @@ fileprivate extension ColorWheelView {
     private func viewPointFromHS(hue: CGFloat, saturation: CGFloat) -> CGPoint {
         let colorWheelDiameter = self.diameter
         let radius = saturation * colorWheelDiameter / 2.0
-        var x = colorWheelDiameter / 2.0 + radius * cos(hue * .pi * 2.0)
-        var y = colorWheelDiameter / 2.0 + radius * sin(hue * .pi * 2.0)
-        
-        let diff = (max(self.bounds.width, self.bounds.height) - self.diameter) / 2
-        
-        if self.bounds.width > self.diameter {
-            x += diff
-        }
-        
-        if self.bounds.height > self.diameter {
-            y += diff
-        }
+        let x = colorWheelDiameter / 2.0 + radius * cos(hue * .pi * 2.0)
+        let y = colorWheelDiameter / 2.0 + radius * sin(hue * .pi * 2.0)
         
         return CGPoint(x: x, y: y)
     }
     
-    private func centerPoint(viewPoint:CGPoint) -> CGPoint {
-        let radius = self.radius
-        let dx = CGFloat(viewPoint.x - radius) / radius
-        let dy = CGFloat(viewPoint.y - radius) / radius
-        return CGPoint(x:dx, y:dy)
+    private func adjustViewPointInBounds(viewPoint:CGPoint) -> CGPoint {
+        let colorWheelDiameter = self.diameter
+        var result : CGPoint = viewPoint
+        if self.bounds.width > colorWheelDiameter {
+            result.x += ((self.bounds.width - colorWheelDiameter) / 2)
+        }
+
+        if self.bounds.height > colorWheelDiameter {
+            result.y += ((self.bounds.height - colorWheelDiameter) / 2)
+        }
+        return result
     }
     
-    private func distance(centerPoint:CGPoint) -> CGFloat {
-        return sqrt(centerPoint.x * centerPoint.x + centerPoint.y * centerPoint.y)
+    private func centerPoint(viewPoint:CGPoint) -> CGPoint {
+        return ColorWheelView.centerPoint(viewPoint: viewPoint, radius: self.radius)
     }
     
     private func convertValid(viewPoint: CGPoint) -> CGPoint {
@@ -402,7 +429,7 @@ fileprivate extension ColorWheelView {
         let dy = Double(CGFloat(y) - radius)
         let point = CGPoint(x:dx, y:dy)
         
-        if self.distance(centerPoint:point) <= radius {
+        if ColorWheelView.distance(centerPoint:point) <= radius {
             return viewPoint
         }
         
